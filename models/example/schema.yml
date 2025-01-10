@@ -19,3 +19,16 @@ models:
             tests:
                 - unique
                 - not_null
+    - name: stg_order_filter
+      description: "Modelo que contiene datos simplificaos."
+      columns:
+          - name: USER_ID
+            description: "Identificador único del cliente."
+            tests:
+                - not_null  # Verifica que no haya valores nulos en esta columna.
+          - name: STATUS
+            description: "Monto total de ordenes por cliente."
+            tests:
+                - not_null  # Verifica que no haya valores nulos en total_order.
+                - accepted_values:
+                    values: ['completed','returned','return_pending']
